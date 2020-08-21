@@ -1,22 +1,13 @@
-function SortNumberArray(nums){
-  if(nums==null)
-  {
-    return [];
-  }
-  let len=nums.length;
 
-    for(let x=0;x<=len;x++)
-    { 
-      for(let y=x;y<=len;y++)
-      {
-        if(parseInt(nums[y])>parseInt(nums[y+1]))
-        {
-          let temp=nums[y];
-          nums[y]=nums[y+1];
-          nums[y+1]=temp;
-          
-        }
-      }
+//Combine the next array element with the previous one until it whole array is one word.
+function stringTrain(array){
+    let newArray=[];
+    let position='';
+    newArray.push(array[0]);
+    for(let x=1;x<array.length;x++)
+    {
+     position=newArray[x-1];
+     newArray.push(position.concat(array[x]));
     }
-  return nums;
-}
+   return newArray;
+ }
